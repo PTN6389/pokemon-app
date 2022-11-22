@@ -1,4 +1,5 @@
-let pokemonList = [
+let pokemonRepository = (function () {
+    let pokemonList = [
     {
         name: 'Bulbasaur',
         height: 7,
@@ -14,9 +15,24 @@ let pokemonList = [
         height: 4.03,
         types: ['poison', 'ground']
     }
-];
+    ];
 
-//List each Pokemon and indicate the ones that have a height greater than 5
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+    }
+
+    function getAll() {
+        return pokemonList;
+    }
+
+    return {
+        add: add,
+        getAll: getAll    
+    };
+
+})();
+
+//console.log(pokemonRepository.getAll())
 function displayPokemonList (pokemon) {
     if (pokemon.height > 5) {
         document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") - Wow, that's big! </p>");  
@@ -25,5 +41,7 @@ function displayPokemonList (pokemon) {
     }
 }
 
-pokemonList.forEach(displayPokemonList);
+pokemonRepository.getAll().forEach(displayPokemonList);
+
+ 
 

@@ -18,6 +18,9 @@ let pokemonRepository = (function () {
     ];
 
     function add(pokemon) {
+        if (typeof pokemonList !== 'object') {
+            alert('pokemonList is not an object')
+        } else
         pokemonList.push(pokemon);
     }
 

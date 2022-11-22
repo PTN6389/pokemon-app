@@ -17,11 +17,13 @@ let pokemonList = [
 ];
 
 //List each Pokemon and indicate the ones that have a height greater than 5
-for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].height > 5) {
-        document.write ("<p>" + pokemonList[i].name + " (<span>Height:</span> " + pokemonList[i].height + ") - Wow, that's big! </p>");  
+function displayPokemonList (pokemon) {
+    if (pokemon.height > 5) {
+        document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") - Wow, that's big! </p>");  
     } else {
-        document.write ("<p>" + pokemonList[i].name + " (<span>Height:</span> " + pokemonList[i].height + ") </p>");
+        document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") </p>");
     }
-    
 }
+
+pokemonList.forEach(displayPokemonList);
+

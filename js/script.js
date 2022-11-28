@@ -20,8 +20,9 @@ let pokemonRepository = (function () {
     function add(pokemon) {
         if (typeof pokemonList !== 'object') {
             alert('pokemonList is not an object')
-        } else
+        } else {
         pokemonList.push(pokemon);
+        }
     }
 
     function getAll() {
@@ -36,15 +37,15 @@ let pokemonRepository = (function () {
 })();
 
 //console.log(pokemonRepository.getAll())
-function displayPokemonList (pokemon) {
+
+
+pokemonRepository.getAll().forEach(function (pokemon) {
     if (pokemon.height > 5) {
         document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") - Wow, that's big! </p>");  
     } else {
         document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") </p>");
     }
-}
-
-pokemonRepository.getAll().forEach(displayPokemonList);
+});
 
  
 

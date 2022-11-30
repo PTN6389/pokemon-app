@@ -38,14 +38,25 @@ let pokemonRepository = (function () {
 
 //console.log(pokemonRepository.getAll())
 
-
 pokemonRepository.getAll().forEach(function (pokemon) {
-    if (pokemon.height > 5) {
-        document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") - Wow, that's big! </p>");  
-    } else {
-        document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") </p>");
-    }
+    let pokemonUl = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    pokemonUl.appendChild(li);
+    listItem.appendChild(button);
+    
+    
 });
+
+
+// pokemonRepository.getAll().forEach(function (pokemon) {
+//     if (pokemon.height > 5) {
+//         document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") - Wow, that's big! </p>");  
+//     } else {
+//         document.write ("<p>" + pokemon.name + " (<span>Height:</span> " + pokemon.height + ") </p>");
+//     }
+// });
 
  
 

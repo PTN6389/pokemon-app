@@ -69,12 +69,14 @@ let pokemonRepository = (function () {
         let url = item.detailsURL;
         showLoadingMessage();
         return fetch(url).then(function (response) {
+            hideLoadingMessage();
             return response.json();
         }).then(function(details) {
             item.imageURL = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
         }).catch(function (e) {
+            hideLoadingMessage();
             console.error(e);
         });
     }

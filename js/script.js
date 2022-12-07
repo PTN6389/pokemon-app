@@ -16,7 +16,7 @@ let pokemonRepository = (function () {
 
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-            console.log(pokemon);
+            showModal(pokemon);
         });
     }
 
@@ -69,7 +69,7 @@ let pokemonRepository = (function () {
         let url = item.detailsURL;
         showLoadingMessage();
         return fetch(url).then(function (response) {
-            hideLoadingMessage();
+          hideLoadingMessage();
             return response.json();
         }).then(function(details) {
             item.imageURL = details.sprites.front_default;
@@ -81,6 +81,49 @@ let pokemonRepository = (function () {
         });
     }
 
+    //Code to hide/show modal
+    function showModal(pokemon) {
+        let modalContainer = document.querySelector('#modal-container');
+        
+
+        //Clear all existing modal content
+        modalContainer.innerText = '';
+
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        let closeButton = document.createElement('button');
+        closeButton.classList.add('modal-close');
+        closeButton.innerText = 'Close';
+        closeButton.addEventListener('click', hideModal);
+
+        let imgElement = document.createElement('img');
+        imgElement.src = pokemon.imageURL;
+
+        let titleElement = document.createElement('h2');
+        titleElement.innerText = pokemon.name;
+
+        let heightElement = document.createElement('p');
+        heightElement.innerText = 'Height: ' + pokemon.height;
+
+        modalContainer.appendChild(modal);
+        modal.appendChild(imgElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(heightElement);
+        modal.appendChild(closeButton);
+
+
+
+        modalContainer.classList.add('is-visible');
+    }
+
+    function hideModal() {
+        let modalContainer = document.querySelector('#modal-container');
+        modalContainer.classList.remove('is-visible');
+    }
+    
+    //End code to hide/show modal
+
     return {
         add: add,
         getAll: getAll, 
@@ -88,6 +131,7 @@ let pokemonRepository = (function () {
         loadList: loadList,
         loadDetails: loadDetails
     };
+
 
 })();
 

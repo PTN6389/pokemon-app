@@ -112,15 +112,31 @@ let pokemonRepository = (function () {
         modal.appendChild(heightElement);
         modal.appendChild(closeButton);
 
-
-
         modalContainer.classList.add('is-visible');
+
+        //close modal by clicking outside the modal
+        modalContainer.addEventListener('click', (e) => {
+            //since this is also triggered when clicking INSIDE the modal
+            //we only want to close if user clicks directly on the overlay
+            let target = e.target;
+            if (target === modalContainer) {
+                hideModal();
+            }
+        });
     }
 
     function hideModal() {
         let modalContainer = document.querySelector('#modal-container');
         modalContainer.classList.remove('is-visible');
     }
+
+    //close modal using ESC
+    window.addEventListener('keydown', (e) => {
+        let modalContainer = document.querySelector('#modal-container');
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal();
+        }
+    });
     
     //End code to hide/show modal
 

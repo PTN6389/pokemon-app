@@ -7,9 +7,9 @@
     --background-color: #F2F2F2;
 }
 
-* {
+/** {
     box-sizing: border-box;
-}
+}*/
 
 body {
     font-family: 'Signika', sans-serif;

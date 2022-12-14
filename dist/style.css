@@ -1,0 +1,61 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 2 version
+*/
+
+/* Other colors: #618685; #fefbd8 */
+
+
+:root {
+    --primary-color: #36486b;
+    --secondary-color: #4040a1; 
+    --background-color: #F2F2F2;
+}
+
+body {
+    font-family: 'Signika', sans-serif;
+    font-size: 16px;
+    margin: 0 10px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+h1 {
+    padding: 0.5rem;
+}
+
+span {
+    color: var(--secondary-color);
+}
+
+li {
+    list-style-type: none;
+}
+
+.button-class {
+    margin: 10px 0;
+    padding: 20px 10px;
+    width: 30%;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 3px;
+    border-style: none;
+    cursor: pointer;
+    font-size: 20px;
+    
+}
+
+.button-class:hover {
+    color: #fff;
+    -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
+    -webkit-transition-duration: .1s;
+            transition-duration: .1s;
+}
+
+.list-group-item {
+    background-color: var(--background-color);
+    border: none;
+}
